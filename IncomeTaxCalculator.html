@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        label, input {
+            margin: 10px 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Income Tax Calculator</h2>
+        <label for="income">Enter Your Annual Income:</label>
+        <input type="number" id="income" placeholder="Income in $">
+        <button onclick="calculateTax()">Calculate Tax</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateTax() {
+            // Get the income entered by the user
+            const income = parseFloat(document.getElementById("income").value);
+            let tax = 0;
+
+            // Check if the income entered is a valid positive number
+            if (isNaN(income) || income < 0) {
+                alert("Please enter a valid income.");
+                return;
+            }
+
+            // Tax calculation based on income brackets
+            if (income <= 10000) {
+                // 10% tax for income up to $10,000
+                tax = income * 0.1;
+                console.log(`Tax Calculation: ${income} * 0.1 = ${tax}`);
+            } else if (income <= 50000) {
+                // 10% tax for the first $10,000
+                const tax1 = 10000 * 0.1;
+                // 20% tax for income between $10,001 and $50,000
+                const tax2 = (income - 10000) * 0.2;
+                // Total tax = sum of both
+                tax = tax1 + tax2;
+                console.log(`Tax Calculation: 10000 * 0.1 + (${income} - 10000) * 0.2 = ${tax}`);
+            } else {
+                // 10% tax for the first $10,000
+                const tax1 = 10000 * 0.1;
+                // 20% tax for the next $40,000
+                const tax2 = 40000 * 0.2;
+                // 30% tax for income over $50,000
+                const tax3 = (income - 50000) * 0.3;
+                // Total tax = sum of all three portions
+                tax = tax1 + tax2 + tax3;
+                console.log(`Tax Calculation: 10000 * 0.1 + 40000 * 0.2 + (${income} - 50000) * 0.3 = ${tax}`);
+            }
+
+            // Display the result to the user
+            document.getElementById("result").innerHTML = `Your annual income is $${income.toFixed(2)}.<br>Your calculated income tax is $${tax.toFixed(2)}.`;
+        }
+    </script>
+
+</body>
+</html>
