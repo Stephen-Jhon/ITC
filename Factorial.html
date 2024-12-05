@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial, Sum, and Average Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        label, input {
+            margin: 10px 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Factorial, Sum, and Average of First N Natural Numbers</h2>
+
+        <!-- Input for N -->
+        <label for="num">Enter a number N:</label>
+        <input type="number" id="num" placeholder="Enter a positive integer">
+        
+        <!-- Buttons to trigger calculations -->
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <p id="factorialResult"></p>
+
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <p id="sumResult"></p>
+
+        <button onclick="calculateAverage()">Calculate Average</button>
+        <p id="averageResult"></p>
+    </div>
+
+    <script>
+        // Factorial calculation using a While loop
+        function calculateFactorial() {
+            const num = parseInt(document.getElementById("num").value);
+            let result = 1;
+            let i = 1;
+
+            if (isNaN(num) || num < 0) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            while (i <= num) {
+                result *= i;
+                i++;
+            }
+
+            document.getElementById("factorialResult").innerHTML = `Factorial of ${num} is ${result}.`;
+        }
+
+        // Sum calculation using a Do-While loop
+        function calculateSum() {
+            const num = parseInt(document.getElementById("num").value);
+            let sum = 0;
+            let i = 1;
+
+            if (isNaN(num) || num < 1) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            do {
+                sum += i;
+                i++;
+            } while (i <= num);
+
+            document.getElementById("sumResult").innerHTML = `Sum of first ${num} natural numbers is ${sum}.`;
+        }
+
+        // Average calculation using a For loop
+        function calculateAverage() {
+            const num = parseInt(document.getElementById("num").value);
+            let sum = 0;
+
+            if (isNaN(num) || num < 1) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            for (let i = 1; i <= num; i++) {
+                sum += i;
+            }
+
+            let average = sum / num;
+            document.getElementById("averageResult").innerHTML = `Average of first ${num} natural numbers is ${average.toFixed(2)}.`;
+        }
+    </script>
+
+</body>
+</html>
