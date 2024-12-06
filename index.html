@@ -1,17 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Dropdown Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .w3-dropdown-hover {
+            position: relative;
+            display: inline-block;
+        }
+        .w3-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .w3-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .w3-dropdown-hover:hover .w3-dropdown-content {
+            display: block;
+        }
+        .w3-bar-item {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: black;
+        }
+        .w3-bar-item:hover {
+            background-color: #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
 
-  <div class="w3-dropdown-hover">
-            <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 1 <i class="fa fa-caret-down"></i></button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
-                <a href="Factorial.html" class="w3-bar-item w3-button" role="menuitem">Factorial</a>
-                <a href="Conversion.html" class="w3-bar-item w3-button" role="menuitem">Conversion</a>
-                <a href="IncomeTaxCalculator.html" class="w3-bar-item w3-button" role="menuitem">Tax</a>
-                <a href="SimplePayroll.html" class="w3-bar-item w3-button" role="menuitem">Payroll</a>
-            </div>
-        </div>
+<header>
+    <h1>Assignment Menu</h1>
+</header>
 
-  
+<div class="w3-dropdown-hover">
+    <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 1 <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
+        <a href="Factorial.html" class="w3-bar-item w3-button" role="menuitem">Factorial</a>
+        <a href="Conversion.html" class="w3-bar-item w3-button" role="menuitem">Conversion</a>
+        <a href="IncomeTaxCalculator.html" class="w3-bar-item w3-button" role="menuitem">Tax</a>
+        <a href="SimplePayroll.html" class="w3-bar-item w3-button" role="menuitem">Payroll</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 Your Name. All rights reserved.</p>
+</footer>
+
 </body>
-</html>
+</html>l>
